@@ -1,0 +1,15 @@
+FROM ubuntu:xenial
+
+RUN apt-get update && apt-get install -y \
+  python2.7 \
+  curl \
+  unzip \
+  groff \
+  reprepro
+
+# Install Amazon CLI
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
+RUN python2.7 get-pip.py
+RUN pip install awscli
+
+COPY ./publish_debs.sh /root/publish_debs.sh

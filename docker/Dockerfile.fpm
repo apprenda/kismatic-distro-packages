@@ -1,0 +1,18 @@
+FROM ruby
+
+# Install FPM
+RUN apt-get update && apt-get install -y \
+  ruby-dev \
+  make \
+  musl-dev \
+  libffi-dev \
+  tar \
+  cpio \
+  expect \
+  rpm
+Run gem install fpm
+
+# setup gpg keys
+COPY .rpmmacros /root/.rpmmacros
+COPY rpm-sign.exp /root/rpm-sign.exp
+RUN chmod 775 /root/rpm-sign.exp
