@@ -10,6 +10,8 @@ build/rpms: source
 	docker build -t kismatic/fpm -f docker/Dockerfile.fpm docker/
 	mkdir -p build/rpms
 	./scripts/build_rpms.sh
+
+sign/rpms: build/rpms
 	./scripts/sign_rpms.sh
 
 build/debs: source
@@ -17,7 +19,7 @@ build/debs: source
 	mkdir -p build/debs
 	./scripts/build_debs.sh
 
-build: source build/rpms build/debs
+build: source build/rpms sign/rpms build/debs
 
 package/debs:
 	docker build -t kismatic/deb -f docker/Dockerfile.deb docker/
