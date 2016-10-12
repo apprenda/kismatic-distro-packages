@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:centos6
 
 RUN yum install -y \
   which \
