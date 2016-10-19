@@ -16,7 +16,7 @@ docker run \
   -t deb \
   -d 'kismatic-kubernetes-node' \
   -d 'kismatic-kubernetes-networking' \
-  -d "kismatic-docker-engine = $DOCKER_DEB_VERSION" \
+  -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
   -p /build/debs \
   -C /source/ \
@@ -41,7 +41,7 @@ docker run \
   -a amd64 \
   -t deb \
   -d 'kismatic-kubernetes-networking' \
-  -d "kismatic-docker-engine = $DOCKER_DEB_VERSION" \
+  -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
   -p /build/debs \
   -C /source/ \
