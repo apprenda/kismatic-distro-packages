@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source VERSIONS.sh
+source ./scripts/VARIABLES.sh
 
 # k8s
 rm -rf source/kubernetes

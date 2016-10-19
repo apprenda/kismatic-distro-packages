@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source VERSIONS.sh
+source ./scripts/VARIABLES.sh
 
 rm -rf source/images
 mkdir -p source/images
