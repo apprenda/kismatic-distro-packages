@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-K8S_VERSION=1.4.0
-DOCKER_VERSION=1.11.2
+source VERSIONS.sh
 
 # build Kubernetes
 # master
@@ -17,7 +16,7 @@ docker run \
   -a x86_64 \
   -d 'kismatic-kubernetes-node' \
   -d 'kismatic-kubernetes-networking' \
-  -d 'kismatic-docker-engine = 1.11.2' \
+  -d "kismatic-docker-engine = $DOCKER_VERSION" \
   -d 'bridge-utils'\
   -p /build/rpms/ \
   -C /source/ \
@@ -42,7 +41,7 @@ docker run \
   -t rpm --rpm-os linux \
   -a x86_64 \
   -d 'kismatic-kubernetes-networking' \
-  -d 'kismatic-docker-engine = 1.11.2' \
+  -d "kismatic-docker-engine = $DOCKER_VERSION" \
   -d 'bridge-utils' \
   -p /build/rpms/ \
   -C /source/ \
@@ -112,5 +111,5 @@ docker run \
   --vendor "Apprenda" \
   --description "Docker and its dependencies" \
   --url "https://apprenda.com/" \
-  /source/docker/rpm/docker-engine-selinux-1.11.2-1.el7.centos.noarch.rpm \
-  /source/docker/rpm/docker-engine-1.11.2-1.el7.centos.x86_64.rpm
+  /source/docker/rpm/docker-engine-selinux-$DOCKER_SELINUX_RPM_VERSION.rpm \
+  /source/docker/rpm/docker-engine-$DOCKER_RPM_VERSION.rpm

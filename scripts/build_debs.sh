@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-K8S_VERSION=1.4.0
-DOCKER_VERSION=1.11.2
+source VERSIONS.sh
 
 # build Kubernetes
 # master
@@ -17,7 +16,7 @@ docker run \
   -t deb \
   -d 'kismatic-kubernetes-node' \
   -d 'kismatic-kubernetes-networking' \
-  -d 'kismatic-docker-engine = 1.11.2-0~xenial' \
+  -d "kismatic-docker-engine = $DOCKER_DEB_VERSION" \
   -d 'bridge-utils' \
   -p /build/debs \
   -C /source/ \
@@ -42,7 +41,7 @@ docker run \
   -a amd64 \
   -t deb \
   -d 'kismatic-kubernetes-networking' \
-  -d 'kismatic-docker-engine = 1.11.2-0~xenial' \
+  -d "kismatic-docker-engine = $DOCKER_DEB_VERSION" \
   -d 'bridge-utils' \
   -p /build/debs \
   -C /source/ \
@@ -112,4 +111,4 @@ docker run \
   --vendor "Apprenda" \
   --description "Docker and its dependencies" \
   --url "https://apprenda.com/" \
-  /source/docker/deb/docker-engine_1.11.2-0~xenial_amd64.deb
+  /source/docker/deb/docker-engine_$DOCKER_DEB_VERSION.deb

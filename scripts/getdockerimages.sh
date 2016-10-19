@@ -1,16 +1,7 @@
 #!/bin/bash
 set -e
 
-# docker images
-DOCKER_IMG=registry:2.5.1
-CALICO_IMG=calico/node:v0.22.0
-CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller
-KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.7
-DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.3
-EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.0
-KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.4.0
-# Used internally by k8s
-PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
+source VERSIONS.sh
 
 rm -rf source/images
 mkdir -p source/images
