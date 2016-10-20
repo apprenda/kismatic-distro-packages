@@ -18,6 +18,10 @@ docker run \
   -d 'kismatic-kubernetes-networking' \
   -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
+  -d 'iptables >= 1.4.21' \
+  -d 'socat' \
+  -d 'util-linux' \
+  -d 'ethtool' \
   -p /build/debs \
   -C /source/ \
   --license "Apache Software License 2.0" \
@@ -43,6 +47,10 @@ docker run \
   -d 'kismatic-kubernetes-networking' \
   -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
+  -d 'iptables >= 1.4.21' \
+  -d 'socat' \
+  -d 'util-linux' \
+  -d 'ethtool' \
   -p /build/debs \
   -C /source/ \
   --license "Apache Software License 2.0" \
