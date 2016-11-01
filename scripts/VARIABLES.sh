@@ -36,3 +36,6 @@ EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.0
 KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.4.0
 # Used internally by k8s
 PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
+# Used by kuberang
+NGINX_IMG=nginx
+BUSYBOX_IMG=busybox

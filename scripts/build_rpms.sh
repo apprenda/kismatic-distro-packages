@@ -59,7 +59,10 @@ docker run \
   --description "Kubernetes node binaries" \
   --url "https://apprenda.com/" \
   kubernetes/kubelet/bin/kubelet=/usr/bin/kubelet \
-  kubernetes/proxy/bin/kube-proxy=/usr/bin/kube-proxy
+  kubernetes/proxy/bin/kube-proxy=/usr/bin/kube-proxy \
+  images/pause.tar=/opt/node-images/pause.tar \
+  images/nginx.tar=/opt/node-images/nginx.tar \
+  images/busybox.tar=/opt/node-images/busybox.tar
 
 # networking
 docker run \
@@ -79,7 +82,8 @@ docker run \
   --description "Kubernetes networking binaries" \
   --url "https://apprenda.com/" \
   networking/ctl/bin/calicoctl=/usr/bin/calicoctl \
-  networking/cni/bin/=/opt/cni/
+  networking/cni/bin/=/opt/cni/ \
+  images/calico.tar=/opt/node-images/calico.tar
 
 # build etcd
 docker run \

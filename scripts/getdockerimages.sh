@@ -13,3 +13,5 @@ docker pull $DNSMAQ_IMG && docker save $DNSMAQ_IMG > source/images/kube-dnsmasq.
 docker pull $EXECHEALTHZ_IMG && docker save $EXECHEALTHZ_IMG > source/images/exechealthz.tar
 docker pull $KUBERNETES_DASHBOARD_IMG && docker save $KUBERNETES_DASHBOARD_IMG > source/images/kubernetes-dashboard.tar
 docker pull $PAUSE_IMG && docker save $PAUSE_IMG > source/images/pause.tar
+docker pull $NGINX_IMG && docker save $NGINX_IMG > source/images/nginx.tar
+docker pull $BUSYBOX_IMG && docker save $BUSYBOX_IMG > source/images/busybox.tar
