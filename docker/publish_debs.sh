@@ -45,6 +45,7 @@ fi
 # check if repo alredy exists in S3
 GPG_KEY="4C708F2F"
 wget https://s3.amazonaws.com/${TARGET_BUCKET}/dists/xenial/InRelease
+set -e
 if [ $? -eq 0 ]; then
   # mirror and append
   # existing repo
