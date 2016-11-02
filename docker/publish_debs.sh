@@ -7,7 +7,7 @@ fi
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 SRC_BASE="${SCRIPT_DIR}/../.."
 
-DEPENDENCIES=("aws" "reprepro")
+DEPENDENCIES=("aws" "aptly")
 REGION="us-east-1"
 SOURCE_DIR=""
 TARGET_BUCKET=""
