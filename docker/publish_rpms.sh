@@ -56,7 +56,7 @@ UPDATE=""
 if [ -e "$TARGET_DIR/repodata/repomd.xml" ]; then
   UPDATE="--update "
 fi
-for a in $TARGET_DIR/x86_64 ; do createrepo -v $UPDATE --deltas $a/ ; done
+for a in $TARGET_DIR ; do createrepo -v $UPDATE --deltas $a/ ; done
 
 # sync the repo state back to s3
 aws --region "${REGION}" s3 sync $TARGET_DIR s3://$TARGET_BUCKET
