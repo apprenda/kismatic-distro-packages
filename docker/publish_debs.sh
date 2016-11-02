@@ -1,6 +1,5 @@
 #!/bin/bash
 # Publishes built DEBs to an s3-backed DEB repo.
-set -e
 if [ ! -z "${DEBUG}" ]; then
   set -x
 fi
