@@ -11,7 +11,7 @@ docker run \
   kismatic/fpm fpm \
   -s dir\
   -n 'kismatic-kubernetes-master' \
-  -v $K8S_VERSION \
+  -v $KISMATIC_PACKAGE_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
   -d 'kismatic-kubernetes-node' \
@@ -41,7 +41,7 @@ docker run \
   kismatic/fpm fpm \
   -s dir \
   -n 'kismatic-kubernetes-node' \
-  -v $K8S_VERSION \
+  -v $KISMATIC_PACKAGE_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
   -d 'kismatic-kubernetes-networking' \
@@ -71,7 +71,7 @@ docker run \
   kismatic/fpm fpm \
   -s dir \
   -n "kismatic-kubernetes-networking" \
-  -v $K8S_VERSION \
+  -v $KISMATIC_PACKAGE_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
   -p /build/rpms/ \
@@ -92,7 +92,7 @@ docker run \
   kismatic/fpm fpm \
   -s dir \
   -n "kismatic-etcd" \
-  -v $K8S_VERSION \
+  -v $KISMATIC_PACKAGE_VERSION \
   -a x86_64 \
   -t rpm --rpm-os linux \
   -p /build/rpms/ \

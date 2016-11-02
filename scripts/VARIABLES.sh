@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # versions
+#TODO autoincrement?
+KISMATIC_PACKAGE_VERSION=1.4.3-2
 K8S_VERSION=1.4.3
 DOCKER_VERSION=1.11.2
 CALICO_CTL_VERSION=v0.22.0
@@ -29,7 +31,7 @@ ETCD_NETWORKING_URL=https://github.com/coreos/etcd/releases/download/$ETCD2_VERS
 # docker images
 DOCKER_IMG=registry:2.5.1
 CALICO_IMG=calico/node:v0.22.0
-CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller
+CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.3.0
 KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.7
 DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.3
 EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.0
