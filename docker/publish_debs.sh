@@ -44,8 +44,8 @@ fi
 # check if repo alredy exists in S3
 GPG_KEY="4C708F2F"
 wget https://s3.amazonaws.com/${TARGET_BUCKET}/dists/xenial/InRelease
-set -e
 if [ $? -eq 0 ]; then
+  set -e
   # mirror and append
   # existing repo
   # mirror repot from S3
@@ -61,6 +61,7 @@ if [ $? -eq 0 ]; then
   # push to S3
   aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
 else
+  set -e
   # new repo
   # create local repo
   aptly repo create -distribution=xenial ${TARGET_BUCKET}
