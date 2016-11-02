@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
   wget \
   unzip \
   groff \
-  reprepro
+  aptly
 
 ENV SIGN_ID $SIGN_ID
 
