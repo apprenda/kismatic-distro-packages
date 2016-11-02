@@ -42,18 +42,29 @@ if [ -z "${TARGET_BUCKET}" ]; then
   exit 1
 fi
 
-TARGET_DIR="/tmp/${TARGET_BUCKET}"
-# copy the DEB in and update the repo
-rm -rf $TARGET_DIR
-mkdir -pv $TARGET_DIR/conf
-touch $TARGET_DIR/conf/distributions
-cat <<EOT >> $TARGET_DIR/conf/distributions
-Codename: xenial
-Components: main
-Architectures: amd64
-SignWith: 4C708F2F
-EOT
-reprepro -b $TARGET_DIR/ includedeb xenial $SOURCE_DIR/*.deb
-
-# sync the repo state back to s3
-aws --region "${REGION}" s3 sync $TARGET_DIR s3://$TARGET_BUCKET --exact-timestamps
+# check if repo alredy exists in S3
+GPG_KEY="4C708F2F"
+wget https://s3.amazonaws.com/${TARGET_BUCKET}/dists/xenial/InRelease
+if [ $? -eq 0 ]; then
+  # mirror and append
+  # existing repo
+  # mirror repot from S3
+  wget -O - ${TARGET_BUCKET}/public.key | gpg --no-default-keyring --keyring trustedkeys.gpg --import
+  aptly mirror create ${TARGET_BUCKET} https://s3.amazonaws.com/${TARGET_BUCKET}/ xenial
+  aptly mirror update ${TARGET_BUCKET}
+  # create local repo
+  aptly repo create -distribution=xenial ${TARGET_BUCKET}
+  # import existing packages
+  aptly repo import ${TARGET_BUCKET} ${TARGET_BUCKET} kismatic-docker-engine kismatic-etcd kismatic-kubernetes-master kismatic-kubernetes-networking kismatic-kubernetes-node
+  # add new packages
+  aptly repo add ${TARGET_BUCKET} $SOURCE_DIR
+  # push to S3
+  aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
+else
+  # new repo
+  # create local repo
+  aptly repo create -distribution=xenial ${TARGET_BUCKET}
+  aptly repo add ${TARGET_BUCKET} $SOURCE_DIR
+  # push to S3
+  aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
+fi
