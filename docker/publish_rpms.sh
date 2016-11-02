@@ -44,12 +44,19 @@ fi
 
 TARGET_DIR="/tmp/${TARGET_BUCKET}"
 
-# copy the RPM in and update the repo
+# make sure we're operating on the latest data in the target bucket
 rm -rf $TARGET_DIR
-mkdir -pv $TARGET_DIR/packages
-cp -rv $SOURCE_DIR/*.rpm $TARGET_DIR/packages
-createrepo -v $TARGET_DIR
+mkdir -p $TARGET_DIR
+aws --region "${REGION}" s3 sync "s3://${TARGET_BUCKET}" $TARGET_DIR
+
+# copy the RPM in and update the repo
+mkdir -pv $TARGET_DIR/x86_64/
+cp -rv $SOURCE_DIR/*.rpm $TARGET_DIR
+UPDATE=""
+if [ -e "$TARGET_DIR/x86_64/repodata/repomd.xml" ]; then
+  UPDATE="--update "
+fi
+for a in $TARGET_DIR/x86_64 ; do createrepo -v $UPDATE --deltas $a/ ; done
 
 # sync the repo state back to s3
 aws --region "${REGION}" s3 sync $TARGET_DIR s3://$TARGET_BUCKET --exact-timestamps
-                                                                              
