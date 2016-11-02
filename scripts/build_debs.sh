@@ -14,8 +14,8 @@ docker run \
   -v $KISMATIC_PACKAGE_VERSION  \
   -a amd64 \
   -t deb \
-  -d 'kismatic-kubernetes-node' \
-  -d 'kismatic-kubernetes-networking' \
+  -d "kismatic-kubernetes-node = $KISMATIC_PACKAGE_VERSION" \
+  -d "kismatic-kubernetes-networking = $KISMATIC_PACKAGE_VERSION" \
   -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
   -d 'iptables >= 1.4.21' \
@@ -44,7 +44,7 @@ docker run \
   -v $KISMATIC_PACKAGE_VERSION  \
   -a amd64 \
   -t deb \
-  -d 'kismatic-kubernetes-networking' \
+  -d "kismatic-kubernetes-networking = $KISMATIC_PACKAGE_VERSION" \
   -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
   -d 'iptables >= 1.4.21' \
