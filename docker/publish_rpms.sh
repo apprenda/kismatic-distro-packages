@@ -50,10 +50,10 @@ mkdir -p $TARGET_DIR
 aws --region "${REGION}" s3 sync "s3://${TARGET_BUCKET}" $TARGET_DIR
 
 # copy the RPM in and update the repo
-mkdir -pv $TARGET_DIR/x86_64/
-cp -rv $SOURCE_DIR/*.rpm $TARGET_DIR
+mkdir -pv $TARGET_DIR/packages
+cp -rv $SOURCE_DIR/*.rpm $TARGET_DIR/packages
 UPDATE=""
-if [ -e "$TARGET_DIR/x86_64/repodata/repomd.xml" ]; then
+if [ -e "$TARGET_DIR/repodata/repomd.xml" ]; then
   UPDATE="--update "
 fi
 for a in $TARGET_DIR/x86_64 ; do createrepo -v $UPDATE --deltas $a/ ; done
