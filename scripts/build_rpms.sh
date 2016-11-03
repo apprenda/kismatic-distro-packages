@@ -35,7 +35,7 @@ docker run \
   kubernetes/kubectl/bin/kubectl=/usr/bin/kubectl \
   images/registry.tar=/opt/images/registry.tar \
   images/kubedns.tar=/opt/images/kubedns.tar \
-  images/kube-dnsmasq.tar=/images/opt/kube-dnsmasq.tar \
+  images/kube-dnsmasq.tar=/opt/images/kube-dnsmasq.tar \
   images/kubernetes-dashboard.tar=/opt/images/kubernetes-dashboard.tar \
   images/exechealthz.tar=/opt/images/exechealthz.tar
 
