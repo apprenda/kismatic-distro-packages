@@ -14,8 +14,8 @@ docker run \
   -v $KISMATIC_PACKAGE_VERSION  \
   -a amd64 \
   -t deb \
-  -d "kismatic-kubernetes-node = $KISMATIC_PACKAGE_VERSION" \
-  -d "kismatic-kubernetes-networking = $KISMATIC_PACKAGE_VERSION" \
+  -d "kismatic-kubernetes-node = $REQUIRED_DEB_KISMATIC_PACKAGE_VERSION" \
+  -d "kismatic-kubernetes-networking = $REQUIRED_DEB_KISMATIC_PACKAGE_VERSION" \
   -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
   -d 'iptables >= 1.4.21' \
@@ -38,7 +38,7 @@ docker run \
   images/kube-dnsmasq.tar=/images/opt/kube-dnsmasq.tar \
   images/kubernetes-dashboard.tar=/opt/images/kubernetes-dashboard.tar \
   images/exechealthz.tar=/opt/images/exechealthz.tar
-  
+
 # worker
 docker run \
   -v $(pwd)/source/:/source/ \
@@ -49,7 +49,7 @@ docker run \
   -v $KISMATIC_PACKAGE_VERSION  \
   -a amd64 \
   -t deb \
-  -d "kismatic-kubernetes-networking = $KISMATIC_PACKAGE_VERSION" \
+  -d "kismatic-kubernetes-networking = $REQUIRED_DEB_KISMATIC_PACKAGE_VERSION" \
   -d "kismatic-docker-engine = $DOCKER_DEB_VERSION_SHORT" \
   -d 'bridge-utils' \
   -d 'iptables >= 1.4.21' \
