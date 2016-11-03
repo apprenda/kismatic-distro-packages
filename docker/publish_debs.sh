@@ -41,6 +41,21 @@ if [ -z "${TARGET_BUCKET}" ]; then
   exit 1
 fi
 
+# modify ~/.aptly.conf
+touch ~/.aptly.conf
+cat <<EOT >> ~/.aptly.conf
+{
+   "architectures":[],
+   "S3PublishEndpoints":{
+      "${TARGET_BUCKET}":{
+         "region":"us-east-1",
+         "bucket":"${TARGET_BUCKET}",
+         "acl":"public-read"
+      }
+   }
+}
+EOT
+
 # check if repo alredy exists in S3
 GPG_KEY="4C708F2F"
 wget https://s3.amazonaws.com/${TARGET_BUCKET}/dists/xenial/InRelease
