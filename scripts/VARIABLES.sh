@@ -2,19 +2,19 @@
 
 # versions
 #TODO autoincrement?
-KISMATIC_PACKAGE_VERSION=1.4.3-8
-REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.4.3_8-1
-REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.4.3-8
-K8S_VERSION=1.4.3
+KISMATIC_PACKAGE_VERSION=1.4.5-1
+REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.4.5_1-1
+REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.4.5-1
+K8S_VERSION=1.4.5
 DOCKER_VERSION=1.11.2
-CALICO_CTL_VERSION=v0.22.0
-CALICO_CNI_VERSION=v1.4.2
+CALICO_CTL_VERSION=v0.23.0
+CALICO_CNI_VERSION=v1.4.3
 CNI_VERSION=v0.3.0
 DOCKER_RPM_VERSION=1.11.2-1.el7.centos.x86_64
 DOCKER_SELINUX_RPM_VERSION=1.11.2-1.el7.centos.noarch
 DOCKER_DEB_VERSION=1.11.2-0~xenial_amd64
 DOCKER_DEB_VERSION_SHORT=1.11.2-0~xenial
-ETCD_VERSION=v3.0.10
+ETCD_VERSION=v3.0.13
 ETCD2_VERSION=v2.3.7
 
 K8S_URL=https://storage.googleapis.com/kubernetes-release/release/v$K8S_VERSION/bin/linux/amd64
@@ -32,8 +32,8 @@ ETCD_NETWORKING_URL=https://github.com/coreos/etcd/releases/download/$ETCD2_VERS
 
 # docker images
 REGISTRY_IMG=registry:2.5.1
-CALICO_IMG=calico/node:v0.22.0
-CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.3.0
+CALICO_IMG=calico/node:v0.23.0
+CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.5.0
 KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.7
 DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.3
 EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.0
