@@ -81,7 +81,8 @@ else
   # new repo
   # create local repo
   aptly repo create -distribution=xenial ${TARGET_BUCKET}
-  aptly repo add ${TARGET_BUCKET} $SOURCE_DIR
+  # -force-replace could cause errors in yum or apt-get
+  aptly repo add -force-replace ${TARGET_BUCKET} $SOURCE_DIR
   # push to S3
   aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
 fi
