@@ -33,7 +33,12 @@ docker run \
   kubernetes/scheduler/bin/kube-scheduler=/usr/bin/kube-scheduler \
   kubernetes/controller-manager/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
   kubernetes/kubectl/bin/kubectl=/usr/bin/kubectl \
-  images/=/opt/
+  images/registry.tar=/opt/images/registry.tar \
+  images/kubedns.tar=/opt/images/kubedns.tar \
+  images/kube-dnsmasq.tar=/images/opt/kube-dnsmasq.tar \
+  images/kubernetes-dashboard.tar=/opt/images/kubernetes-dashboard.tar \
+  images/exechealthz.tar=/opt/images/exechealthz.tar
+
 # worker
 docker run \
   -v $(pwd)/source/:/source/ \
@@ -83,7 +88,8 @@ docker run \
   --url "https://apprenda.com/" \
   networking/ctl/bin/calicoctl=/usr/bin/calicoctl \
   networking/cni/bin/=/opt/cni/ \
-  images/calico.tar=/opt/images/calico.tar
+  images/calico.tar=/opt/images/calico.tar \
+  images/kube-policy-controller.tar=/opt/images/kube-policy-controller.tar
 
 # build etcd
 docker run \

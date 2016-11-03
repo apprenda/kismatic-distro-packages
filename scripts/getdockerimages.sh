@@ -5,7 +5,7 @@ source ./scripts/VARIABLES.sh
 
 rm -rf source/images
 mkdir -p source/images
-docker pull $DOCKER_IMG && docker save $DOCKER_IMG > source/images/registry.tar
+docker pull $REGISTRY_IMG && docker save $REGISTRY_IMG > source/images/registry.tar
 docker pull $CALICO_IMG && docker save $CALICO_IMG > source/images/calico.tar
 docker pull $CALICO_KUBE_POLICY_CONTROLLER_IMG && docker save $CALICO_KUBE_POLICY_CONTROLLER_IMG > source/images/kube-policy-controller.tar
 docker pull $KUBEDNS_IMG && docker save $KUBEDNS_IMG > source/images/kubedns.tar
