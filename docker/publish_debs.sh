@@ -73,7 +73,8 @@ if [ $? -eq 0 ]; then
   # import existing packages
   aptly repo import ${TARGET_BUCKET} ${TARGET_BUCKET} kismatic-docker-engine kismatic-etcd kismatic-kubernetes-master kismatic-kubernetes-networking kismatic-kubernetes-node
   # add new packages
-  aptly repo add ${TARGET_BUCKET} $SOURCE_DIR
+  # -force-replace could cause errors in yum or apt-get
+  aptly repo add -force-replace ${TARGET_BUCKET} $SOURCE_DIR
   # push to S3
   aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
 else
@@ -81,8 +82,7 @@ else
   # new repo
   # create local repo
   aptly repo create -distribution=xenial ${TARGET_BUCKET}
-  # -force-replace could cause errors in yum or apt-get
-  aptly repo add -force-replace ${TARGET_BUCKET} $SOURCE_DIR
+  aptly repo add ${TARGET_BUCKET} $SOURCE_DIR
   # push to S3
   aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
 fi
