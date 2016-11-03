@@ -34,10 +34,10 @@ ETCD_NETWORKING_URL=https://github.com/coreos/etcd/releases/download/$ETCD2_VERS
 REGISTRY_IMG=registry:2.5.1
 CALICO_IMG=calico/node:v0.23.0
 CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.5.0
-KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.7
-DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.3
-EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.0
-KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.4.0
+KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.8
+DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.4
+EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.2
+KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.4.2
 # Used internally by k8s
 PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 # Used by kuberang
