@@ -76,7 +76,7 @@ if [ $? -eq 0 ]; then
   # -force-replace could cause errors in yum or apt-get
   aptly repo add -force-replace ${TARGET_BUCKET} $SOURCE_DIR
   # push to S3
-  aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
+  aptly publish repo -gpg-key=${GPG_KEY} -force-overwrite ${TARGET_BUCKET} s3:${TARGET_BUCKET}:
 else
   set -e
   # new repo
