@@ -64,7 +64,8 @@ if [ $? -eq 0 ]; then
   # mirror and append
   # existing repo
   # mirror repot from S3
-  wget -O - ${TARGET_BUCKET}/public.key | gpg --no-default-keyring --keyring trustedkeys.gpg --import
+
+  wget -O - https://s3.amazonaws.com/${TARGET_BUCKET}/public.key | gpg --no-default-keyring --keyring trustedkeys.gpg --import
   aptly mirror create ${TARGET_BUCKET} https://s3.amazonaws.com/${TARGET_BUCKET}/ xenial
   aptly mirror update ${TARGET_BUCKET}
   # create local repo
