@@ -28,7 +28,7 @@ docker run \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
   --description "Kubernetes master binaries" \
-  --url "https://apprenda.com/" \
+  --url "https://apprenda.com/kismatic" \
   kubernetes/apiserver/bin/kube-apiserver=/usr/bin/kube-apiserver \
   kubernetes/scheduler/bin/kube-scheduler=/usr/bin/kube-scheduler \
   kubernetes/controller-manager/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
@@ -62,7 +62,7 @@ docker run \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
   --description "Kubernetes node binaries" \
-  --url "https://apprenda.com/" \
+  --url "https://apprenda.com/kismatic" \
   kubernetes/kubelet/bin/kubelet=/usr/bin/kubelet \
   kubernetes/proxy/bin/kube-proxy=/usr/bin/kube-proxy \
   images/pause.tar=/opt/images/pause.tar \
@@ -85,7 +85,7 @@ docker run \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
   --description "Kubernetes networking binaries" \
-  --url "https://apprenda.com/" \
+  --url "https://apprenda.com/kismatic" \
   networking/ctl/bin/calicoctl=/usr/bin/calicoctl \
   networking/cni/bin/=/opt/cni/ \
   images/calico.tar=/opt/images/calico.tar \
@@ -107,7 +107,7 @@ docker run \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
   --description "Etcd kubernetes and networking binaries" \
-  --url "https://apprenda.com/" \
+  --url "https://apprenda.com/kismatic" \
   etcd/k8s/bin/etcd=/usr/bin/etcd \
   etcd/k8s/bin/etcdctl=/usr/bin/etcdctl \
   etcd/networking/bin/etcd2=/usr/bin/etcd2 \
@@ -128,6 +128,6 @@ docker run \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
   --description "Docker and its dependencies" \
-  --url "https://apprenda.com/" \
+  --url "https://apprenda.com/kismatic" \
   /source/docker/rpm/docker-engine-selinux-$DOCKER_SELINUX_RPM_VERSION.rpm \
   /source/docker/rpm/docker-engine-$DOCKER_RPM_VERSION.rpm
