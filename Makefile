@@ -19,7 +19,7 @@ build/debs: source
 	mkdir -p build/debs
 	./scripts/build_debs.sh
 
-build: source build/debs
+build: source build/rpms sign/rpms build/debs
 
 package/debs:
 	docker build -t kismatic/deb -f docker/Dockerfile.deb docker/
@@ -29,6 +29,6 @@ package/rpms:
 	docker build -t kismatic/rpm -f docker/Dockerfile.rpm docker/
 	./scripts/package_rpms.sh
 
-package: package/debs
+package: package/debs package/rpms
 
 all: clean source build package
