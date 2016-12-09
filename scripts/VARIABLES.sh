@@ -6,8 +6,8 @@ REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.5.0_1-1
 REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.5.0-1
 K8S_VERSION=1.5.0-beta.3
 DOCKER_VERSION=1.11.2
-CALICO_CTL_VERSION=v1.0.0-rc2
-CALICO_CONTAINER_VERSION=v1.0.0-rc2
+CALICO_CTL_VERSION=v1.0.0-rc3
+CALICO_CONTAINER_VERSION=v1.0.0-rc3
 CALICO_CNI_VERSION=v1.5.3
 CNI_VERSION=v0.3.0
 DOCKER_RPM_VERSION=1.11.2-1.el7.centos.x86_64
@@ -36,6 +36,8 @@ KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.9
 DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.4
 EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.2
 KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.5.0
+DEFAULT_BACKEND=gcr.io/google_containers/defaultbackend:1.0
+NGINX_INGRESS_CONTROLLER=gcr.io/google_containers/nginx-ingress-controller:0.8.3
 # Used internally by k8s
 PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 # Used by kuberang

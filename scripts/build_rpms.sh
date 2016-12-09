@@ -67,7 +67,9 @@ docker run \
   kubernetes/proxy/bin/kube-proxy=/usr/bin/kube-proxy \
   images/pause.tar=/opt/images/pause.tar \
   images/nginx.tar=/opt/images/nginx.tar \
-  images/busybox.tar=/opt/images/busybox.tar
+  images/busybox.tar=/opt/images/busybox.tar \
+  images/defaultbackend.tar=/opt/images/defaultbackend.tar \
+  images/nginx-ingress-controller.tar=/opt/images/nginx-ingress-controller.tar
 
 # networking
 docker run \

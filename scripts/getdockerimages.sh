@@ -15,3 +15,5 @@ docker pull $KUBERNETES_DASHBOARD_IMG && docker save $KUBERNETES_DASHBOARD_IMG >
 docker pull $PAUSE_IMG && docker save $PAUSE_IMG > source/images/pause.tar
 docker pull $NGINX_IMG && docker save $NGINX_IMG > source/images/nginx.tar
 docker pull $BUSYBOX_IMG && docker save $BUSYBOX_IMG > source/images/busybox.tar
+docker pull $DEFAULT_BACKEND && docker save $DEFAULT_BACKEND > source/images/defaultbackend.tar
+docker pull $NGINX_INGRESS_CONTROLLER && docker save $NGINX_INGRESS_CONTROLLER > source/images/nginx-ingress-controller.tar
