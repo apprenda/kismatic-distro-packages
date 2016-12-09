@@ -30,14 +30,10 @@ wget -P source/docker/deb/ $DOCKER_DEB_URL
 
 # etcd
 rm -rf source/etcd/
-mkdir -p source/etcd/k8s/bin/
-mkdir -p source/etcd/networking/bin/
-wget -P source/etcd/k8s/ $ETCD_K8S_URL && tar xvzf source/etcd/k8s/etcd-v3* -C source/etcd/k8s/ && rm source/etcd/k8s/etcd-v3*.tar.gz
-mv source/etcd/k8s/etcd-v3*/etcd source/etcd/k8s/bin/etcd
-mv source/etcd/k8s/etcd-v3*/etcdctl source/etcd/k8s/bin/etcdctl
-rm -rf source/etcd/k8s/etcd-v3*
-wget -P source/etcd/networking/ $ETCD_NETWORKING_URL && tar xvzf source/etcd/networking/etcd-v2* -C source/etcd/networking && rm source/etcd/networking/etcd-v2*.tar.gz
-mv source/etcd/networking/etcd-v2*/etcd source/etcd/networking/bin/etcd2
-mv source/etcd/networking/etcd-v2*/etcdctl source/etcd/networking/bin/etcdctl2
-rm -rf source/etcd/networking/etcd-v2*
+mkdir -p source/etcd/bin/k8s
+mkdir -p source/etcd/bin/networking
+wget -P source/etcd/ $ETCD_K8S_URL && tar xvzf source/etcd/etcd-v3* -C source/etcd/ && rm source/etcd/etcd-v3*.tar.gz
+cp source/etcd/etcd-v3*/etcd source/etcd/k8s/bin/etcd_k8s
+cp source/etcd/etcd-v3*/etcdctl source/etcd/k8s/bin/etcdctl
+cp source/etcd/etcd-v3*/etcd source/etcd/networking/bin/etcd_networking
 chmod 750 source/etcd/*/bin/*

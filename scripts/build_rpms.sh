@@ -108,10 +108,9 @@ docker run \
   --vendor "Apprenda" \
   --description "Etcd kubernetes and networking binaries" \
   --url "https://apprenda.com/kismatic" \
-  etcd/k8s/bin/etcd=/usr/bin/etcd \
+  etcd/k8s/bin/etcd_k8s=/usr/bin/etcd_k8s \
   etcd/k8s/bin/etcdctl=/usr/bin/etcdctl \
-  etcd/networking/bin/etcd2=/usr/bin/etcd2 \
-  etcd/networking/bin/etcdctl2=/usr/bin/etcdctl2
+  etcd/networking/bin/etcd_networking=/usr/bin/etcd_networking
 
 # build docker
 docker run \
