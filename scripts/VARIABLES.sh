@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.4.5-1
-REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.4.5_1-1
-REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.4.5-1
-K8S_VERSION=1.4.5
+KISMATIC_PACKAGE_VERSION=1.5.0-1
+REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.5.0_1-1
+REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.5.0-1
+K8S_VERSION=1.5.0-beta.3
 DOCKER_VERSION=1.11.2
-CALICO_CTL_VERSION=v0.22.0
-CALICO_CONTAINER_VERSION=v0.22.0
-CALICO_CNI_VERSION=v1.4.3
+CALICO_CTL_VERSION=v1.0.0-rc2
+CALICO_CONTAINER_VERSION=v1.0.0-rc2
+CALICO_CNI_VERSION=v1.5.3
 CNI_VERSION=v0.3.0
 DOCKER_RPM_VERSION=1.11.2-1.el7.centos.x86_64
 DOCKER_SELINUX_RPM_VERSION=1.11.2-1.el7.centos.noarch
@@ -34,10 +34,10 @@ ETCD_NETWORKING_URL=https://github.com/coreos/etcd/releases/download/$ETCD2_VERS
 REGISTRY_IMG=registry:2.5.1
 CALICO_IMG=calico/node:$CALICO_CONTAINER_VERSION
 CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.4.0
-KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.8
+KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.9
 DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.4
 EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.2
-KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.4.2
+KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.5.0
 # Used internally by k8s
 PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 # Used by kuberang
