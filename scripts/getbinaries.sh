@@ -30,8 +30,8 @@ wget -P source/docker/deb/ $DOCKER_DEB_URL
 
 # etcd
 rm -rf source/etcd/
-mkdir -p source/etcd/bin/k8s
-mkdir -p source/etcd/bin/networking
+mkdir -p source/etcd/k8s/bin/
+mkdir -p source/etcd/networking/bin/
 wget -P source/etcd/ $ETCD_K8S_URL && tar xvzf source/etcd/etcd-v3* -C source/etcd/ && rm source/etcd/etcd-v3*.tar.gz
 cp source/etcd/etcd-v3*/etcd source/etcd/k8s/bin/etcd_k8s
 cp source/etcd/etcd-v3*/etcdctl source/etcd/k8s/bin/etcdctl
