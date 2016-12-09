@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.5.0-1
-REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.5.0_1-1
-REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.5.0-1
+KISMATIC_PACKAGE_VERSION=1.5.0-2
+REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.5.0_2-1
+REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.5.0-2
 K8S_VERSION=1.5.0-beta.3
 DOCKER_VERSION=1.11.2
 CALICO_CTL_VERSION=v1.0.0-rc3
@@ -15,6 +15,7 @@ DOCKER_SELINUX_RPM_VERSION=1.11.2-1.el7.centos.noarch
 DOCKER_DEB_VERSION=1.11.2-0~xenial_amd64
 DOCKER_DEB_VERSION_SHORT=1.11.2-0~xenial
 ETCD_VERSION=v3.0.15
+ETCD2_VERSION=v2.3.7
 
 K8S_URL=https://storage.googleapis.com/kubernetes-release/release/v$K8S_VERSION/bin/linux/amd64
 
@@ -27,6 +28,8 @@ DOCKER_SELINUX_RPM_URL=https://yum.dockerproject.org/repo/main/centos/7/Packages
 DOCKER_DEB_URL=https://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_$DOCKER_DEB_VERSION.deb
 
 ETCD_K8S_URL=https://github.com/coreos/etcd/releases/download/$ETCD_VERSION/etcd-$ETCD_VERSION-linux-amd64.tar.gz
+ETCD_NETWORKING_URL=https://github.com/coreos/etcd/releases/download/$ETCD2_VERSION/etcd-$ETCD2_VERSION-linux-amd64.tar.gz
+
 
 # docker images
 REGISTRY_IMG=registry:2.5.1
