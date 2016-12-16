@@ -67,7 +67,9 @@ docker run \
   kubernetes/proxy/bin/kube-proxy=/usr/bin/kube-proxy \
   images/pause.tar=/opt/images/pause.tar \
   images/nginx.tar=/opt/images/nginx.tar \
-  images/busybox.tar=/opt/images/busybox.tar
+  images/busybox.tar=/opt/images/busybox.tar \
+  images/defaultbackend.tar=/opt/images/defaultbackend.tar \
+  images/nginx-ingress-controller.tar=/opt/images/nginx-ingress-controller.tar
 
 # networking
 docker run \
@@ -108,10 +110,9 @@ docker run \
   --vendor "Apprenda" \
   --description "Etcd kubernetes and networking binaries" \
   --url "https://apprenda.com/kismatic" \
-  etcd/k8s/bin/etcd=/usr/bin/etcd \
+  etcd/k8s/bin/etcd_k8s=/usr/bin/etcd_k8s \
   etcd/k8s/bin/etcdctl=/usr/bin/etcdctl \
-  etcd/networking/bin/etcd2=/usr/bin/etcd2 \
-  etcd/networking/bin/etcdctl2=/usr/bin/etcdctl2
+  etcd/networking/bin/etcd_networking=/usr/bin/etcd_networking
 
 # build docker
 docker run \

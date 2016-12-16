@@ -12,7 +12,7 @@ https://github.com/apprenda/kismatic-distro-packages
 * RPM and Deb repositories already exist:
 	* RPM: [kismatic-packages-rpm](https://console.aws.amazon.com/s3/home?region=us-east-1#&bucket=kismatic-packages-rpm&prefix=)
 	* DEB: [kismatic-packages-deb](https://console.aws.amazon.com/s3/home?region=us-east-1#&bucket=kismatic-packages-deb&prefix=)
-  
+
 *If a new package repository needs to be created the existing S3 bucket can be cloned and KET modified to use new URLs*
 
 ### Definitions
@@ -22,13 +22,13 @@ https://github.com/apprenda/kismatic-distro-packages
 
 ## Build
 1. Modify `scripts/VARIABLES.sh` with new component versions
-  1. `KISMATIC_PACKAGE_VERSION` will have the same format as the `K8S_VERSION` with `-#` where **#** is a number that represents a unique Kismatic build with the provided Kuberntes version (**the first build will always be -1**) 
+  1. `KISMATIC_PACKAGE_VERSION` will have the same format as the `K8S_VERSION` with `-#` where **#** is a number that represents a unique Kismatic build with the provided Kuberntes version (**the first build will always be -1**)
   1. `REQUIRED_RPM_KISMATIC_PACKAGE_VERSION` and `REQUIRED_DEB_KISMATIC_PACKAGE_VERSION` are both required due to the different version formats for RPM and Debian packages
   1. Confirm there are no other version changes required
     1. [Cailco](http://docs.projectcalico.org/)
     1. [KubeDNS](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/dns)
     1. [Dashboard](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/dashboard)
-    
+
 If no other packaging changes are needed run `KEYS_PATH=~/gpgkey make build` to download the new binaries and build RPM and DEB packages locally
 
 Note: RPM packages are signed at build time. DEB packages are not signed, instead the repository itself is
@@ -58,7 +58,7 @@ SnapCI is already configured with the required ENV variables to build and publis
 * For development: `dev` branch - [SnapCI](https://snap-ci.com/apprenda/kismatic-distro-packages/branch/dev) will clone the repo and build and publish packages automatically
 
 ## Run Locally
-`RPM_REPO=kismatic-rpm-test DEB_REPO=kismatic-deb-test KEYS_PATH=~/gpgkeys CREDENTIALS_PATH=~/credentials make all`  
+`RPM_REPO=kismatic-packages-rpm-test DEB_REPO=kismatic-packages-deb-test KEYS_PATH=~/gpgkeys CREDENTIALS_PATH=~/credentials make all`  
 * `kismatic-$$$-test` is a staging repo and is not used in production
 * `KEYS_PATH` contains `priate.key` and `public.key` used for signing the packages
 * `CREDENTIALS_PATH` are the AWS credentials where S3 buckets with `RPM_REPO` and `DEB_REPO` already exist
@@ -68,10 +68,10 @@ SnapCI is already configured with the required ENV variables to build and publis
 * Make any version or packaging changes
 * Commit to trigger a new SnapCI build for the staging repo
 * Create a new KET pre-release PR with the new package versions, any Ansible changes, and repo URLs with the staging repo
-* Run integration tests until succeeded 
+* Run integration tests until succeeded
 * Merge `dev` branch into `master` branch in this repo
 * Trigger SnapCI build for the production repo (having new package versions in the repos will NOT affect existing KET packages since all versions are set)
 * Modify repo URLs to point to production
-* Run integration tests until succeeded 
+* Run integration tests until succeeded
 * Merge KET PR
 * Release a new version of KET

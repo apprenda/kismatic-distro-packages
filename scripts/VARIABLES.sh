@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.4.5-1
-REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.4.5_1-1
-REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.4.5-1
-K8S_VERSION=1.4.5
+KISMATIC_PACKAGE_VERSION=1.5.1-1
+REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.5.1_1-1
+REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.5.1-1
+K8S_VERSION=1.5.1
 DOCKER_VERSION=1.11.2
 CALICO_CTL_VERSION=v0.22.0
 CALICO_CONTAINER_VERSION=v0.22.0
@@ -14,7 +14,7 @@ DOCKER_RPM_VERSION=1.11.2-1.el7.centos.x86_64
 DOCKER_SELINUX_RPM_VERSION=1.11.2-1.el7.centos.noarch
 DOCKER_DEB_VERSION=1.11.2-0~xenial_amd64
 DOCKER_DEB_VERSION_SHORT=1.11.2-0~xenial
-ETCD_VERSION=v3.0.13
+ETCD_VERSION=v3.0.15
 ETCD2_VERSION=v2.3.7
 
 K8S_URL=https://storage.googleapis.com/kubernetes-release/release/v$K8S_VERSION/bin/linux/amd64
@@ -30,14 +30,17 @@ DOCKER_DEB_URL=https://apt.dockerproject.org/repo/pool/main/d/docker-engine/dock
 ETCD_K8S_URL=https://github.com/coreos/etcd/releases/download/$ETCD_VERSION/etcd-$ETCD_VERSION-linux-amd64.tar.gz
 ETCD_NETWORKING_URL=https://github.com/coreos/etcd/releases/download/$ETCD2_VERSION/etcd-$ETCD2_VERSION-linux-amd64.tar.gz
 
+
 # docker images
 REGISTRY_IMG=registry:2.5.1
 CALICO_IMG=calico/node:$CALICO_CONTAINER_VERSION
 CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.4.0
-KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.8
+KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.9
 DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.4
 EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.2
-KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.4.2
+KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.5.0
+DEFAULT_BACKEND=gcr.io/google_containers/defaultbackend:1.0
+NGINX_INGRESS_CONTROLLER=gcr.io/google_containers/nginx-ingress-controller:0.8.3
 # Used internally by k8s
 PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 # Used by kuberang
