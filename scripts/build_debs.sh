@@ -22,6 +22,7 @@ docker run \
   -d 'socat' \
   -d 'util-linux' \
   -d 'ethtool' \
+  -d 'nfs-common' \
   -p /build/debs \
   -C /source/ \
   --license "Apache Software License 2.0" \
@@ -56,6 +57,7 @@ docker run \
   -d 'socat' \
   -d 'util-linux' \
   -d 'ethtool' \
+  -d 'nfs-common' \
   -p /build/debs \
   -C /source/ \
   --license "Apache Software License 2.0" \

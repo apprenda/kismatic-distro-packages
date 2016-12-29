@@ -22,6 +22,7 @@ docker run \
   -d 'socat' \
   -d 'util-linux' \
   -d 'ethtool' \
+  -d 'nfs-utils' \
   -p /build/rpms/ \
   -C /source/ \
   --license "Apache Software License 2.0" \
@@ -56,6 +57,7 @@ docker run \
   -d 'socat' \
   -d 'util-linux' \
   -d 'ethtool' \
+  -d 'nfs-utils' \
   -p /build/rpms/ \
   -C /source/ \
   --license "Apache Software License 2.0" \
