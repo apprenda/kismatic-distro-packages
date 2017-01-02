@@ -1,4 +1,4 @@
-FROM ruby
+FROM ruby:2.3
 
 # Install FPM
 RUN apt-get update && apt-get install -y \
@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
   cpio \
   expect \
   rpm
-Run gem install fpm
+
+RUN gem install --no-ri --no-rdoc fpm
 
 # setup gpg keys
 COPY .rpmmacros /root/.rpmmacros
