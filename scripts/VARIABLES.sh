@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.5.1-3
-REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.5.1_3-1
-REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.5.1-3
-K8S_VERSION=1.5.1
+KISMATIC_PACKAGE_VERSION=1.5.2-1
+REQUIRED_RPM_KISMATIC_PACKAGE_VERSION=1.5.2_1-1
+REQUIRED_DEB_KISMATIC_PACKAGE_VERSION=1.5.2-1
+K8S_VERSION=1.5.2
 DOCKER_VERSION=1.11.2
 CALICO_CTL_VERSION=v1.0.0
 CALICO_CONTAINER_VERSION=v1.0.0
@@ -38,7 +38,7 @@ CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.4.0
 KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.9
 DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.4
 EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.2
-KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.5.0
+KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.5.1
 DEFAULT_BACKEND=gcr.io/google_containers/defaultbackend:1.0
 NGINX_INGRESS_CONTROLLER=gcr.io/google_containers/nginx-ingress-controller:0.8.3
 # Used internally by k8s
