@@ -81,8 +81,6 @@ docker run \
   --vendor "Apprenda" \
   --description "Kubernetes node binaries" \
   --url "https://apprenda.com/kismatic" \
-  kubernetes/kubelet/bin/kubelet=/usr/bin/kubelet \
-  kubernetes/proxy/bin/kube-proxy=/usr/bin/kube-proxy \
   images/registry.tar=/opt/images/registry.tar \
   images/kubedns.tar=/opt/images/kubedns.tar \
   images/kube-dnsmasq.tar=/opt/images/kube-dnsmasq.tar \
