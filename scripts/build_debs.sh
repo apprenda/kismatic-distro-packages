@@ -71,7 +71,7 @@ docker run \
   images/nginx.tar=/opt/images/nginx.tar \
   images/busybox.tar=/opt/images/busybox.tar \
   images/defaultbackend.tar=/opt/images/defaultbackend.tar \
-  images/nginx-ingress-controller.tar=/opt/images/nginx-ingress-controller.tar
+  images/nginx-ingress-controller.tar=/opt/images/nginx-ingress-controller.tar \
   images/tcp-healthz-amd64.tar=/opt/images/tcp-healthz-amd64.tar
 
 # networking
