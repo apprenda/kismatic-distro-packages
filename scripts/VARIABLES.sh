@@ -41,6 +41,7 @@ EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.2
 KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.5.1
 DEFAULT_BACKEND=gcr.io/google_containers/defaultbackend:1.0
 NGINX_INGRESS_CONTROLLER=gcr.io/google_containers/nginx-ingress-controller:0.8.3
+APPRENDA_TCP_HEALTHZ=apprenda/tcp-healthz-amd64:v1.0.0
 # Used internally by k8s
 PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 # Used by kuberang

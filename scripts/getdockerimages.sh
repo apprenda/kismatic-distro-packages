@@ -17,3 +17,4 @@ docker pull $NGINX_IMG && docker save $NGINX_IMG > source/images/nginx.tar
 docker pull $BUSYBOX_IMG && docker save $BUSYBOX_IMG > source/images/busybox.tar
 docker pull $DEFAULT_BACKEND && docker save $DEFAULT_BACKEND > source/images/defaultbackend.tar
 docker pull $NGINX_INGRESS_CONTROLLER && docker save $NGINX_INGRESS_CONTROLLER > source/images/nginx-ingress-controller.tar
+docker pull $APPRENDA_TCP_HEALTHZ && docker save $APPRENDA_TCP_HEALTHZ > source/images/tcp-healthz-amd64.tar
