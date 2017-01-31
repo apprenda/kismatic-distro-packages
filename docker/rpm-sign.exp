@@ -5,5 +5,4 @@
 spawn rpm --addsign {*}$argv
 expect -exact "Enter pass phrase: "
 send -- "\r"
-spawn rpm --checksig {*}$argv
-expect "md5 OK"
+expect eof
