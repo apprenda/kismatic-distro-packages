@@ -9,6 +9,12 @@ wget -P source/kubernetes/kubelet/bin/ $K8S_URL/kubelet
 wget -P source/kubernetes/kubectl/bin/ $K8S_URL/kubectl
 chmod 750 source/kubernetes/*/bin/*
 
+# docker
+rm -rf source/docker/
+wget -P source/docker/rpm/ $DOCKER_RPM_URL
+wget -P source/docker/rpm/ $DOCKER_SELINUX_RPM_URL
+wget -P source/docker/deb/ $DOCKER_DEB_URL
+
 # etcd
 rm -rf source/etcd/
 mkdir -p source/etcd/k8s/bin/

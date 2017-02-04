@@ -3,13 +3,21 @@
 # versions
 KISMATIC_PACKAGE_VERSION=1.5.2-4
 K8S_VERSION=1.5.2
-ETCD_VERSION=v3.1.0
+ETCD_VERSION=3.1.0
+DOCKER_VERSION=1.11.2
+DOCKER_RPM_VERSION=1.11.2-1.el7.centos.x86_64
+DOCKER_SELINUX_RPM_VERSION=1.11.2-1.el7.centos.noarch
+DOCKER_DEB_VERSION=1.11.2-0~xenial_amd64
 
 # urls
 K8S_URL=https://storage.googleapis.com/kubernetes-release/release/v$K8S_VERSION/bin/linux/amd64
-ETCD_URL=https://github.com/coreos/etcd/releases/download/$ETCD_VERSION/etcd-$ETCD_VERSION-linux-amd64.tar.gz
+ETCD_URL=https://github.com/coreos/etcd/releases/download/v$ETCD_VERSION/etcd-v$ETCD_VERSION-linux-amd64.tar.gz
 
 # docker images
+DOCKER_RPM_URL=https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-$DOCKER_RPM_VERSION.rpm
+DOCKER_SELINUX_RPM_URL=https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-$DOCKER_SELINUX_RPM_VERSION.rpm
+DOCKER_DEB_URL=https://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_$DOCKER_DEB_VERSION.deb
+
 # k8s control plance
 KUBE_PROXY_IMG=gcr.io/google-containers/kube-proxy-amd64:v$K8S_VERSION
 KUBE_CONTROLLER_MANAGER_IMG=gcr.io/google-containers/kube-controller-manager-amd64:v$K8S_VERSION

@@ -58,7 +58,7 @@ EOT
 
 # check if repo alredy exists in S3
 GPG_KEY="4C708F2F"
-wget https://s3.amazonaws.com/${TARGET_BUCKET}/dists/xenial/InRelease
+wget https://s3.amazonaws.com/${TARGET_BUCKET}/dists/kismatic-xenial/InRelease
 if [ $? -eq 0 ]; then
   set -e
   # mirror and append
@@ -66,10 +66,10 @@ if [ $? -eq 0 ]; then
   # mirror repot from S3
 
   wget -O - https://s3.amazonaws.com/${TARGET_BUCKET}/public.key | gpg --no-default-keyring --keyring trustedkeys.gpg --import
-  aptly mirror create ${TARGET_BUCKET} https://s3.amazonaws.com/${TARGET_BUCKET}/ xenial
+  aptly mirror create ${TARGET_BUCKET} https://s3.amazonaws.com/${TARGET_BUCKET}/ kismatic-xenial
   aptly mirror update ${TARGET_BUCKET}
   # create local repo
-  aptly repo create -distribution=xenial ${TARGET_BUCKET}
+  aptly repo create -distribution=kismatic-xenial ${TARGET_BUCKET}
   # import existing packages
   aptly repo import ${TARGET_BUCKET} ${TARGET_BUCKET} kismatic-docker-engine kismatic-etcd kismatic-kubernetes-master kismatic-kubernetes-networking kismatic-kubernetes-node
   # add new packages
@@ -81,7 +81,7 @@ else
   set -e
   # new repo
   # create local repo
-  aptly repo create -distribution=xenial ${TARGET_BUCKET}
+  aptly repo create -distribution=kismatic-xenial ${TARGET_BUCKET}
   aptly repo add ${TARGET_BUCKET} $SOURCE_DIR
   # push to S3
   aptly publish repo -gpg-key=${GPG_KEY} ${TARGET_BUCKET} s3:${TARGET_BUCKET}:

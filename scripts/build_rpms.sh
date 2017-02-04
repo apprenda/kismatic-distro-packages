@@ -9,10 +9,10 @@ docker run \
   -v $(pwd)/build/:/build/ \
   kismatic/fpm fpm \
   -s dir \
-  -n "kismatic-etcd" \
-  -v $KISMATIC_PACKAGE_VERSION \
-  -a x86_64 \
+  -n "etcd" \
+  -v $ETCD_VERSION \
   -t rpm --rpm-os linux \
+  -a x86_64 \
   -p /build/rpms/ \
   -C /source/ \
   --license "Apache Software License 2.0" \
@@ -30,7 +30,7 @@ docker run \
   -v $(pwd)/build/:/build/ \
   kismatic/fpm fpm \
   -s dir \
-  -n 'kismatic-kubelet' \
+  -n 'kubelet' \
   -v $KISMATIC_PACKAGE_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
@@ -55,7 +55,7 @@ docker run \
   -v $(pwd)/build/:/build/ \
   kismatic/fpm fpm \
   -s dir \
-  -n 'kismatic-kubectl' \
+  -n 'kubectl' \
   -v $KISMATIC_PACKAGE_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
@@ -67,6 +67,26 @@ docker run \
   --description "Kubernetes kubectl binaries" \
   --url "https://apprenda.com/kismatic" \
   kubernetes/kubectl/bin/kubectl=/usr/bin/kubectl
+
+
+# build docker
+docker run \
+  -v $(pwd)/source/:/source/ \
+  -v $(pwd)/build/:/build/ \
+  kismatic/fpm fpm \
+  -s rpm \
+  -n "docker-engine" \
+  -v $DOCKER_VERSION \
+  -t rpm --rpm-os linux \
+  -a x86_64 \
+  -p /build/rpms/ \
+  --license "Apache Software License 2.0" \
+  --maintainer "Apprenda <info@apprenda.com>" \
+  --vendor "Apprenda" \
+  --description "Docker and its dependencies" \
+  --url "https://apprenda.com/kismatic" \
+  /source/docker/rpm/docker-engine-selinux-$DOCKER_SELINUX_RPM_VERSION.rpm \
+  /source/docker/rpm/docker-engine-$DOCKER_RPM_VERSION.rpm
 
 # offline
 docker run \

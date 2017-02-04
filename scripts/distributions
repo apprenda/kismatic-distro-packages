@@ -1,4 +1,4 @@
-Codename: xenial
+Codename: kismatic-xenial
 Components: main
 Architectures: amd64
 SignWith: 4C708F2F
