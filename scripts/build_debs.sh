@@ -41,7 +41,7 @@ docker run \
   --vendor "Apprenda" \
   --description "Transition Etcd binary used to upgrade from 2.3 to 3.1" \
   --url "https://apprenda.com/kismatic" \
-  transitionetcd/bin/etcd_transition=/usr/bin/etcd_transition
+  transitionetcd/bin/etcd_transition=/usr/bin/etcd_networking
 
 # kubelet
 docker run \
