@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.5.2-4
-K8S_VERSION=1.5.2
-ETCD_VERSION=3.1.0
+KISMATIC_PACKAGE_VERSION=1.5.3-1
+K8S_VERSION=1.5.3
+ETCD_VERSION=3.1.1
+TRANSITION_ETCD_VERSION=3.0.17
 DOCKER_VERSION=1.11.2
 DOCKER_RPM_VERSION=1.11.2-1.el7.centos.x86_64
 DOCKER_SELINUX_RPM_VERSION=1.11.2-1.el7.centos.noarch
@@ -12,6 +13,7 @@ DOCKER_DEB_VERSION=1.11.2-0~xenial_amd64
 # urls
 K8S_URL=https://storage.googleapis.com/kubernetes-release/release/v$K8S_VERSION/bin/linux/amd64
 ETCD_URL=https://github.com/coreos/etcd/releases/download/v$ETCD_VERSION/etcd-v$ETCD_VERSION-linux-amd64.tar.gz
+TRANSITION_ETCD_URL=https://github.com/coreos/etcd/releases/download/v$TRANSITION_ETCD_VERSION/etcd-v$TRANSITION_ETCD_VERSION-linux-amd64.tar.gz
 
 # docker images
 DOCKER_RPM_URL=https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-$DOCKER_RPM_VERSION.rpm

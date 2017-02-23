@@ -24,6 +24,25 @@ docker run \
   etcd/k8s/bin/etcdctl=/usr/bin/etcdctl \
   etcd/networking/bin/etcd_networking=/usr/bin/etcd_networking
 
+# build etcd
+docker run \
+  -v $(pwd)/source/:/source/ \
+  -v $(pwd)/build/:/build/ \
+  kismatic/fpm fpm \
+  -s dir \
+  -n "transition-etcd" \
+  -v $TRANSITION_ETCD_VERSION  \
+  -a amd64 \
+  -t deb \
+  -p /build/debs \
+  -C /source/ \
+  --license "Apache Software License 2.0" \
+  --maintainer "Apprenda <info@apprenda.com>" \
+  --vendor "Apprenda" \
+  --description "Transition Etcd binary used to upgrade from 2.3 to 3.1" \
+  --url "https://apprenda.com/kismatic" \
+  transitionetcd/bin/etcd_transition=/usr/bin/etcd_transition
+
 # kubelet
 docker run \
   -v $(pwd)/source/:/source/ \

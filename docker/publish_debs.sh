@@ -71,7 +71,7 @@ if [ $? -eq 0 ]; then
   # create local repo
   aptly repo create -distribution=kismatic-xenial ${TARGET_BUCKET}
   # import existing packages
-  aptly repo import ${TARGET_BUCKET} ${TARGET_BUCKET} kismatic-docker-engine kismatic-etcd kismatic-kubernetes-master kismatic-kubernetes-networking kismatic-kubernetes-node
+  aptly repo import ${TARGET_BUCKET} ${TARGET_BUCKET} etcd transition-etcd kubelet kubectl docker-engine kismatic-docker-engine kismatic-etcd kismatic-kubernetes-master kismatic-kubernetes-networking kismatic-kubernetes-node kismatic-offline
   # add new packages
   # -force-replace could cause errors in yum or apt-get
   aptly repo add -force-replace ${TARGET_BUCKET} $SOURCE_DIR
