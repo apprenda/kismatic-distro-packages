@@ -32,5 +32,6 @@ rm -rf source/transitionetcd/
 mkdir -p source/transitionetcd/bin/
 wget -P source/transitionetcd/ $TRANSITION_ETCD_URL && tar xvzf source/transitionetcd/etcd-v3* -C source/transitionetcd/ && rm source/transitionetcd/etcd-v3*.tar.gz
 cp source/transitionetcd/etcd-v3*/etcd source/transitionetcd/bin/etcd_v3_0
+cp source/transitionetcd/etcd-v3*/etcdctl source/transitionetcd/bin/etcdctl
 rm -rf source/transitionetcd/etcd-v3*
 chmod 750 source/transitionetcd/bin/*
