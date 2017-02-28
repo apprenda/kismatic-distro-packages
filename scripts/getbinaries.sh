@@ -21,9 +21,8 @@ mkdir -p source/etcd/k8s/bin/
 mkdir -p source/etcd/networking/bin/
 wget -P source/etcd/ $ETCD_URL && tar xvzf source/etcd/etcd-v3* -C source/etcd/ && rm source/etcd/etcd-v3*.tar.gz
 cp source/etcd/etcd-v3*/etcd source/etcd/networking/bin/etcd_networking
-mv source/etcd/etcd-v3*/etcd source/etcd/k8s/bin/etcd_k8s
-mv source/etcd/etcd-v3*/etcdctl source/etcd/k8s/bin/etcdctl
-rm -rf source/etcd/etcd-v3*
+cp source/etcd/etcd-v3*/etcd source/etcd/k8s/bin/etcd_k8s
+cp source/etcd/etcd-v3*/etcdctl source/etcd/k8s/bin/etcdctl
 chmod 750 source/etcd/*/bin/*
 
 # transition etcd
@@ -33,5 +32,8 @@ mkdir -p source/transitionetcd/bin/
 wget -P source/transitionetcd/ $TRANSITION_ETCD_URL && tar xvzf source/transitionetcd/etcd-v3* -C source/transitionetcd/ && rm source/transitionetcd/etcd-v3*.tar.gz
 cp source/transitionetcd/etcd-v3*/etcd source/transitionetcd/bin/etcd_v3_0
 cp source/transitionetcd/etcd-v3*/etcdctl source/transitionetcd/bin/etcdctl
-rm -rf source/transitionetcd/etcd-v3*
+cp source/etcd/etcd-v3*/etcd source/transitionetcd/bin/etcd_k8s
 chmod 750 source/transitionetcd/bin/*
+
+rm -rf source/etcd/etcd-v3*
+rm -rf source/transitionetcd/etcd-v3*

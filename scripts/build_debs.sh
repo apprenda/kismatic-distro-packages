@@ -42,6 +42,7 @@ docker run \
   --description "Transition Etcd binary used to upgrade from 2.3 to 3.1" \
   --url "https://apprenda.com/kismatic" \
   transitionetcd/bin/etcd_v3_0=/usr/bin/etcd_v3_0 \
+  transitionetcd/bin/etcd_k8s=/usr/bin/etcd_k8s \
   transitionetcd/bin/etcdctl=/usr/bin/etcdctl
 
 # kubelet
