@@ -24,6 +24,7 @@ cp source/etcd/etcd-v3*/etcd source/etcd/networking/bin/etcd_networking
 cp source/etcd/etcd-v3*/etcd source/etcd/k8s/bin/etcd_k8s
 cp source/etcd/etcd-v3*/etcdctl source/etcd/k8s/bin/etcdctl
 chmod 750 source/etcd/*/bin/*
+rm -rf source/etcd/etcd-v3*
 
 # transition etcd
 # to support upgrades a v3.0.x is required to go from 2.3.x to 3.1.x
@@ -31,9 +32,6 @@ rm -rf source/transitionetcd/
 mkdir -p source/transitionetcd/bin/
 wget -P source/transitionetcd/ $TRANSITION_ETCD_URL && tar xvzf source/transitionetcd/etcd-v3* -C source/transitionetcd/ && rm source/transitionetcd/etcd-v3*.tar.gz
 cp source/transitionetcd/etcd-v3*/etcd source/transitionetcd/bin/etcd_v3_0
-cp source/transitionetcd/etcd-v3*/etcdctl source/transitionetcd/bin/etcdctl
-cp source/etcd/etcd-v3*/etcd source/transitionetcd/bin/etcd_k8s
+cp source/transitionetcd/etcd-v3*/etcdctl source/transitionetcd/bin/etcdctl_v3_0
 chmod 750 source/transitionetcd/bin/*
-
-rm -rf source/etcd/etcd-v3*
 rm -rf source/transitionetcd/etcd-v3*
