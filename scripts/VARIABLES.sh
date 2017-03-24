@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.5.3-1
-K8S_VERSION=1.5.3
-ETCD_VERSION=3.1.1
+KISMATIC_PACKAGE_VERSION=1.6.0-1
+K8S_VERSION=1.6.0
+ETCD_VERSION=3.1.4
 TRANSITION_ETCD_VERSION=3.0.17
 DOCKER_VERSION=1.11.2
 DOCKER_RPM_VERSION=1.11.2-1.el7.centos.x86_64
@@ -26,16 +26,16 @@ KUBE_CONTROLLER_MANAGER_IMG=gcr.io/google-containers/kube-controller-manager-amd
 KUBE_SCHEDULER_IMG=gcr.io/google-containers/kube-scheduler-amd64:v$K8S_VERSION
 KUBE_APISERVER_IMG=gcr.io/google-containers/kube-apiserver-amd64:v$K8S_VERSION
 # networking
-CALICO_IMG=calico/node:v1.0.2
-CALICO_CTL_IMG=calico/ctl:v1.0.2
-CALICO_CNI_IMG=calico/cni:v1.5.6
-CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.5.2
+CALICO_IMG=calico/node:v1.1.0
+CALICO_CTL_IMG=calico/ctl:v1.1.0
+CALICO_CNI_IMG=calico/cni:v1.6.1
+CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.5.4
 # install support
 REGISTRY_IMG=registry:2.5.1
-KUBEDNS_IMG=gcr.io/google_containers/kubedns-amd64:1.9
-DNSMAQ_IMG=gcr.io/google_containers/kube-dnsmasq-amd64:1.4
-EXECHEALTHZ_IMG=gcr.io/google_containers/exechealthz-amd64:1.2
-KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.5.1
+KUBEDNS_IMG=gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.1
+DNSMAQ_IMG=gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.1
+KUBEDNS_SIDECAR_IMG=gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.1
+KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.6.0
 DEFAULT_BACKEND=gcr.io/google_containers/defaultbackend:1.0
 NGINX_INGRESS_CONTROLLER=gcr.io/google_containers/nginx-ingress-controller:0.8.3
 APPRENDA_TCP_HEALTHZ=apprenda/tcp-healthz-amd64:v1.0.0

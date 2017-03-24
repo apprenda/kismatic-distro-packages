@@ -18,7 +18,7 @@ docker pull $CALICO_KUBE_POLICY_CONTROLLER_IMG && docker save $CALICO_KUBE_POLIC
 docker pull $REGISTRY_IMG && docker save $REGISTRY_IMG > source/images/registry.tar
 docker pull $KUBEDNS_IMG && docker save $KUBEDNS_IMG > source/images/kubedns.tar
 docker pull $DNSMAQ_IMG && docker save $DNSMAQ_IMG > source/images/kube-dnsmasq.tar
-docker pull $EXECHEALTHZ_IMG && docker save $EXECHEALTHZ_IMG > source/images/exechealthz.tar
+docker pull $KUBEDNS_SIDECAR_IMG && docker save $KUBEDNS_SIDECAR_IMG > source/images/kubedns-sidecar.tar
 docker pull $KUBERNETES_DASHBOARD_IMG && docker save $KUBERNETES_DASHBOARD_IMG > source/images/kubernetes-dashboard.tar
 docker pull $DEFAULT_BACKEND && docker save $DEFAULT_BACKEND > source/images/defaultbackend.tar
 docker pull $NGINX_INGRESS_CONTROLLER && docker save $NGINX_INGRESS_CONTROLLER > source/images/nginx-ingress-controller.tar

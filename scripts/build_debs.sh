@@ -127,7 +127,7 @@ docker run \
   images/kubedns.tar=/opt/images/kubedns.tar \
   images/kube-dnsmasq.tar=/opt/images/kube-dnsmasq.tar \
   images/kubernetes-dashboard.tar=/opt/images/kubernetes-dashboard.tar \
-  images/exechealthz.tar=/opt/images/exechealthz.tar \
+  images/kubedns-sidecar.tar=/opt/images/kubedns-sidecar.tar \
   images/pause.tar=/opt/images/pause.tar \
   images/nginx.tar=/opt/images/nginx.tar \
   images/busybox.tar=/opt/images/busybox.tar \
