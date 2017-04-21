@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.6.0-1
+KISMATIC_PACKAGE_VERSION=1.6.0-2
 K8S_VERSION=1.6.0
 ETCD_VERSION=3.1.4
 TRANSITION_ETCD_VERSION=3.0.17
@@ -29,7 +29,7 @@ KUBE_APISERVER_IMG=gcr.io/google-containers/kube-apiserver-amd64:v$K8S_VERSION
 CALICO_IMG=calico/node:v1.1.0
 CALICO_CTL_IMG=calico/ctl:v1.1.0
 CALICO_CNI_IMG=calico/cni:v1.6.1
-CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.5.4
+CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.6.0
 # install support
 REGISTRY_IMG=registry:2.5.1
 KUBEDNS_IMG=gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.1
