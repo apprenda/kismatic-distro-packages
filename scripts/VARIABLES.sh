@@ -26,9 +26,9 @@ KUBE_CONTROLLER_MANAGER_IMG=gcr.io/google-containers/kube-controller-manager-amd
 KUBE_SCHEDULER_IMG=gcr.io/google-containers/kube-scheduler-amd64:v$K8S_VERSION
 KUBE_APISERVER_IMG=gcr.io/google-containers/kube-apiserver-amd64:v$K8S_VERSION
 # networking
-CALICO_IMG=calico/node:v1.1.0
-CALICO_CTL_IMG=calico/ctl:v1.1.0
-CALICO_CNI_IMG=calico/cni:v1.6.1
+CALICO_IMG=calico/node:v1.1.3
+CALICO_CTL_IMG=calico/ctl:v1.1.3
+CALICO_CNI_IMG=calico/cni:v1.7.0
 CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.6.0
 # install support
 REGISTRY_IMG=registry:2.5.1
