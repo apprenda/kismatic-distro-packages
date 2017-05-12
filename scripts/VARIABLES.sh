@@ -44,3 +44,5 @@ PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 # used by kuberang
 NGINX_IMG=nginx:stable-alpine
 BUSYBOX_IMG=busybox:latest
+# features
+TILLER=gcr.io/kubernetes-helm/tiller:v2.4.1

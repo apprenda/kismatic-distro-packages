@@ -26,3 +26,4 @@ docker pull $APPRENDA_TCP_HEALTHZ && docker save $APPRENDA_TCP_HEALTHZ > source/
 docker pull $PAUSE_IMG && docker save $PAUSE_IMG > source/images/pause.tar
 docker pull $NGINX_IMG && docker save $NGINX_IMG > source/images/nginx.tar
 docker pull $BUSYBOX_IMG && docker save $BUSYBOX_IMG > source/images/busybox.tar
+docker pull $TILLER && docker save $TILLER > source/images/tiller.tar

@@ -143,4 +143,5 @@ docker run \
   images/calico.tar=/opt/images/calico.tar \
   images/calico-ctl.tar=/opt/images/calico-ctl.tar \
   images/calico-cni.tar=/opt/images/calico-cni.tar \
-  images/kube-policy-controller.tar=/opt/images/kube-policy-controller.tar
+  images/kube-policy-controller.tar=/opt/images/kube-policy-controller.tar \
+  images/tiller.tar=/opt/images/tiller.tar
