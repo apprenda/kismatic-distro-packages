@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.6.3-1
-K8S_VERSION=1.6.3
+KISMATIC_PACKAGE_VERSION=1.6.4-1
+K8S_VERSION=1.6.4
 ETCD_VERSION=3.1.4
 TRANSITION_ETCD_VERSION=3.0.17
 DOCKER_VERSION=1.12.6
@@ -26,8 +26,8 @@ KUBE_CONTROLLER_MANAGER_IMG=gcr.io/google-containers/kube-controller-manager-amd
 KUBE_SCHEDULER_IMG=gcr.io/google-containers/kube-scheduler-amd64:v$K8S_VERSION
 KUBE_APISERVER_IMG=gcr.io/google-containers/kube-apiserver-amd64:v$K8S_VERSION
 # networking
-CALICO_IMG=calico/node:v1.2.0
-CALICO_CTL_IMG=calico/ctl:v1.2.0
+CALICO_IMG=calico/node:v1.2.1
+CALICO_CTL_IMG=calico/ctl:v1.2.1
 CALICO_CNI_IMG=calico/cni:v1.8.3
 CALICO_KUBE_POLICY_CONTROLLER_IMG=calico/kube-policy-controller:v0.6.0
 # install support
@@ -45,4 +45,4 @@ PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 NGINX_IMG=nginx:stable-alpine
 BUSYBOX_IMG=busybox:latest
 # features
-TILLER=gcr.io/kubernetes-helm/tiller:v2.4.1
+TILLER=gcr.io/kubernetes-helm/tiller:v2.4.2
