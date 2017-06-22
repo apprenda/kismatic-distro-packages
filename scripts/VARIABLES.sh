@@ -44,5 +44,7 @@ PAUSE_IMG=gcr.io/google_containers/pause-amd64:3.0
 # used by kuberang
 NGINX_IMG=nginx:stable-alpine
 BUSYBOX_IMG=busybox:latest
-# features
+# addons
+HEAPSTER=gcr.io/google_containers/heapster-amd64:v1.3.0
+INFLUXDB=gcr.io/google_containers/heapster-influxdb-amd64:v1.1.1
 TILLER=gcr.io/kubernetes-helm/tiller:v2.4.2
