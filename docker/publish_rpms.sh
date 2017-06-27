@@ -1,6 +1,7 @@
 #!/bin/bash
 # Publishes built RPMs to an s3-backed RPM repo.
 set -e
+set -x
 if [ ! -z "${DEBUG}" ]; then
   set -x
 fi

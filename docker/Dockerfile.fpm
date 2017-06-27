@@ -1,6 +1,10 @@
 FROM ruby:2.3
 
-# Install FPM
+# Setup aptly repo
+COPY ./aptly.list /etc/apt/sources.list.d/aptly.list
+RUN apt-key adv --keyserver keys.gnupg.net --recv-keys 9E3E53F19C7DE460
+
+# Install FPM, createrepo and aptly
 RUN apt-get update && apt-get install -y \
   ruby-dev \
   make \
@@ -9,11 +13,28 @@ RUN apt-get update && apt-get install -y \
   tar \
   cpio \
   expect \
-  rpm
+  rpm \
+  debianutils \
+  createrepo \
+  awscli \
+  curl \
+  wget \
+  unzip \
+  groff \
+  aptly
 
+# Install Docker from Docker Inc. repositories.
+RUN curl -sSL https://get.docker.com/ | sh
+
+# install fpm
 RUN gem install --no-ri --no-rdoc fpm
+
+ENV SIGN_ID $SIGN_ID
 
 # setup gpg keys
 COPY .rpmmacros /root/.rpmmacros
 COPY rpm-sign.exp /root/rpm-sign.exp
 RUN chmod 775 /root/rpm-sign.exp
+
+COPY ./publish_debs.sh /root/publish_debs.sh
+COPY ./publish_rpms.sh /root/publish_rpms.sh

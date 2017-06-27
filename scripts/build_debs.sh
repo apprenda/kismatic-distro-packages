@@ -4,17 +4,14 @@ set -e
 source ./scripts/VARIABLES.sh
 
 # build etcd
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n "etcd" \
   -v $ETCD_VERSION  \
   -a amd64 \
   -t deb \
-  -p /build/debs \
-  -C /source/ \
+  -p build/debs \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -25,17 +22,14 @@ docker run \
   etcd/networking/bin/etcd_networking=/usr/bin/etcd_networking
 
 # build etcd
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n "transition-etcd" \
   -v $TRANSITION_ETCD_VERSION  \
   -a amd64 \
   -t deb \
-  -p /build/debs \
-  -C /source/ \
+  -p build/debs \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -45,10 +39,7 @@ docker run \
   transitionetcd/bin/etcdctl_v3_0=/usr/bin/etcdctl_v3_0
 
 # kubelet
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n "kubelet" \
   -v $KISMATIC_PACKAGE_VERSION  \
@@ -60,8 +51,8 @@ docker run \
   -d 'util-linux' \
   -d 'ethtool' \
   -d 'nfs-common' \
-  -p /build/debs \
-  -C /source/ \
+  -p build/debs \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -70,17 +61,14 @@ docker run \
   kubernetes/kubelet/bin/kubelet=/usr/bin/kubelet
 
 # kubectl
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n "kubectl" \
   -v $KISMATIC_PACKAGE_VERSION  \
   -a amd64 \
   -t deb \
-  -p /build/debs \
-  -C /source/ \
+  -p build/debs \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -89,35 +77,29 @@ docker run \
   kubernetes/kubectl/bin/kubectl=/usr/bin/kubectl
 
 # build docker
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s deb \
   -n "docker-engine" \
   -a amd64 \
   -t deb \
   -v $DOCKER_VERSION \
-  -p /build/debs/ \
+  -p build/debs/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
   --description "Docker and its dependencies" \
   --url "https://apprenda.com/kismatic" \
-  /source/docker/deb/docker-engine_$DOCKER_DEB_VERSION.deb
+  source/docker/deb/docker-engine_$DOCKER_DEB_VERSION.deb
 
 # offline
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n "kismatic-offline" \
   -v $KISMATIC_PACKAGE_VERSION  \
   -a amd64 \
   -t deb \
-  -p /build/debs \
-  -C /source/ \
+  -p build/debs \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \

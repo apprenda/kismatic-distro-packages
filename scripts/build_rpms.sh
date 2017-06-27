@@ -4,17 +4,14 @@ set -e
 source ./scripts/VARIABLES.sh
 
 # build etcd
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n "etcd" \
   -v $ETCD_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
-  -p /build/rpms/ \
-  -C /source/ \
+  -p build/rpms/ \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -25,17 +22,14 @@ docker run \
   etcd/networking/bin/etcd_networking=/usr/bin/etcd_networking
 
 # build etcd
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n "transition-etcd" \
   -v $TRANSITION_ETCD_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
-  -p /build/rpms/ \
-  -C /source/ \
+  -p build/rpms/ \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -45,10 +39,7 @@ docker run \
   transitionetcd/bin/etcdctl_v3_0=/usr/bin/etcdctl_v3_0
 
 # kubelet
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n 'kubelet' \
   -v $KISMATIC_PACKAGE_VERSION \
@@ -60,8 +51,8 @@ docker run \
   -d 'util-linux' \
   -d 'ethtool' \
   -d 'nfs-utils' \
-  -p /build/rpms/ \
-  -C /source/ \
+  -p build/rpms/ \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -70,17 +61,14 @@ docker run \
   kubernetes/kubelet/bin/kubelet=/usr/bin/kubelet
 
 # kubectl
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n 'kubectl' \
   -v $KISMATIC_PACKAGE_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
-  -p /build/rpms/ \
-  -C /source/ \
+  -p build/rpms/ \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
@@ -90,36 +78,30 @@ docker run \
 
 
 # build docker
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s rpm \
   -n "docker-engine" \
   -v $DOCKER_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
-  -p /build/rpms/ \
+  -p build/rpms/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \
   --description "Docker and its dependencies" \
   --url "https://apprenda.com/kismatic" \
-  /source/docker/rpm/docker-engine-selinux-$DOCKER_SELINUX_RPM_VERSION.rpm \
-  /source/docker/rpm/docker-engine-$DOCKER_RPM_VERSION.rpm
+  source/docker/rpm/docker-engine-selinux-$DOCKER_SELINUX_RPM_VERSION.rpm \
+  source/docker/rpm/docker-engine-$DOCKER_RPM_VERSION.rpm
 
 # offline
-docker run \
-  -v $(pwd)/source/:/source/ \
-  -v $(pwd)/build/:/build/ \
-  kismatic/fpm fpm \
+fpm \
   -s dir \
   -n 'kismatic-offline' \
   -v $KISMATIC_PACKAGE_VERSION \
   -t rpm --rpm-os linux \
   -a x86_64 \
-  -p /build/rpms/ \
-  -C /source/ \
+  -p build/rpms/ \
+  -C source/ \
   --license "Apache Software License 2.0" \
   --maintainer "Apprenda <info@apprenda.com>" \
   --vendor "Apprenda" \

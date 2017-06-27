@@ -1,0 +1,31 @@
+version: 2
+defaults: &defaults
+  working_directory: /go/src/github.com/apprenda/kismatic-distro-packages
+  docker:
+    - image: apprenda/kismatic-fpm:v0.1
+  environment:
+    - KEYS_PATH: keys
+    - CREDENTIALS_PATH: ${HOME}/.aws
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: make source
+      - run: mkdir ${KEYS_PATH}
+      - run: echo "${GPG_PRIVATE_KEY}" | base64 -d > ${KEYS_PATH}/private.key
+      - run: echo "${GPG_PUBLIC_KEY}" | base64 -d > ${KEYS_PATH}/public.key
+      - run: ls -la
+      - run: make build/debs
+      - run: make build/rpms
+      - run: make sign/rpms
+      - run: 
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then export DEB_REPO="${MASTER_DEB_REPO}" && export RPM_REPO="${MASTER_RPM_REPO}"; else export DEB_REPO="${DEV_DEB_REPO}" && export RPM_REPO="${DEV_RPM_REPO}"; fi
+            make package/debs
+      - run: 
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then export DEB_REPO="${MASTER_DEB_REPO}" && export RPM_REPO="${MASTER_RPM_REPO}"; else export DEB_REPO="${DEV_DEB_REPO}" && export RPM_REPO="${DEV_RPM_REPO}"; fi
+            make package/rpms
