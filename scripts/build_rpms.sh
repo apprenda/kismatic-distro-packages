@@ -122,9 +122,15 @@ fpm \
   images/kube-controller-manager.tar=/opt/images/kube-controller-manager.tar \
   images/kube-scheduler.tar=/opt/images/kube-scheduler.tar \
   images/kube-apiserver.tar=/opt/images/kube-apiserver.tar \
+  images/cni-bin.tar=/opt/images/cni-bin.tar \
   images/calico.tar=/opt/images/calico.tar \
   images/calico-ctl.tar=/opt/images/calico-ctl.tar \
   images/calico-cni.tar=/opt/images/calico-cni.tar \
+  images/weave-kube.tar=/opt/images/weave-kube.tar \
+  images/weave-npc.tar=/opt/images/weave-npc.tar \
+  images/netplugin.tar=/opt/images/netplugin.tar \
+  images/auth-proxy.tar=/opt/images/auth-proxy.tar \
+  images/aci-gw.tar=/opt/images/aci-gw.tar \
   images/kube-policy-controller.tar=/opt/images/kube-policy-controller.tar \
   images/heapster.tar=/opt/images/heapster.tar \
   images/influxdb.tar=/opt/images/influxdb.tar \

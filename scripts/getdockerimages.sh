@@ -10,10 +10,19 @@ docker pull $KUBE_CONTROLLER_MANAGER_IMG; docker save $KUBE_CONTROLLER_MANAGER_I
 docker pull $KUBE_SCHEDULER_IMG; docker save $KUBE_SCHEDULER_IMG > source/images/kube-scheduler.tar
 docker pull $KUBE_APISERVER_IMG; docker save $KUBE_APISERVER_IMG > source/images/kube-apiserver.tar
 
+docker pull $CNI_IMG; docker save $CNI_IMG > source/images/cni-bin.tar
+
 docker pull $CALICO_IMG; docker save $CALICO_IMG > source/images/calico.tar
 docker pull $CALICO_CTL_IMG; docker save $CALICO_CTL_IMG > source/images/calico-ctl.tar
 docker pull $CALICO_CNI_IMG; docker save $CALICO_CNI_IMG > source/images/calico-cni.tar
 docker pull $CALICO_KUBE_POLICY_CONTROLLER_IMG; docker save $CALICO_KUBE_POLICY_CONTROLLER_IMG > source/images/kube-policy-controller.tar
+
+docker pull $WEAVE_IMG; docker save $WEAVE_IMG > source/images/weave-kube.tar
+docker pull $WEAVE_NPC_IMG; docker save $WEAVE_NPC_IMG > source/images/weave-npc.tar
+
+docker pull $CONTIV_NETPLUGIN_IMG; docker save $CONTIV_NETPLUGIN_IMG > source/images/netplugin.tar
+docker pull $CONTIV_PROXY_IMG; docker save $CONTIV_PROXY_IMG > source/images/auth-proxy.tar
+docker pull $CONTIV_GW_IMG; docker save $CONTIV_GW_IMG > source/images/aci-gw.tar
 
 docker pull $REGISTRY_IMG; docker save $REGISTRY_IMG > source/images/registry.tar
 docker pull $KUBEDNS_IMG; docker save $KUBEDNS_IMG > source/images/kubedns.tar
