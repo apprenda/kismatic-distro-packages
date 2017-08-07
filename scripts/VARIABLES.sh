@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # versions
-KISMATIC_PACKAGE_VERSION=1.7.2-1
-K8S_VERSION=1.7.2
+KISMATIC_PACKAGE_VERSION=1.7.3-1
+K8S_VERSION=1.7.3
 ETCD_VERSION=3.1.10
 TRANSITION_ETCD_VERSION=3.0.17
 DOCKER_VERSION=1.12.6
@@ -44,7 +44,7 @@ REGISTRY_IMG=registry:2.6.2
 KUBEDNS_IMG=gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.4
 DNSMAQ_IMG=gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.4
 KUBEDNS_SIDECAR_IMG=gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.4
-KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.6.2
+KUBERNETES_DASHBOARD_IMG=gcr.io/google_containers/kubernetes-dashboard-amd64:v1.6.3
 DEFAULT_BACKEND=gcr.io/google_containers/defaultbackend:1.0
 NGINX_INGRESS_CONTROLLER=gcr.io/google_containers/nginx-ingress-controller:0.8.3
 APPRENDA_TCP_HEALTHZ=apprenda/tcp-healthz-amd64:v1.0.0
