@@ -1,3 +1,7 @@
+ifeq ($(origin VERSION), undefined)
+	VERSION := $(shell git describe --tags --always)
+endif
+
 all: clean build package
 
 clean:
@@ -26,6 +30,14 @@ build/debs: source
 	./scripts/build_debs.sh
 
 build: source build/rpms sign/rpms build/debs
+
+backup/debs:
+	aws s3api create-bucket --bucket kismatic-packages-deb-backup-$(VERSION) --region us-east-1
+	aws --region "us-east-1" s3 sync "s3://$(DEB_REPO)" "s3://kismatic-packages-deb-backup-$(VERSION)"
+
+backup/rpms:
+	aws s3api create-bucket --bucket kismatic-packages-rpm-backup-$(VERSION) --region us-east-1
+	aws --region "us-east-1" s3 sync "s3://$(RPM_REPO)" "s3://kismatic-packages-rpm-backup-$(VERSION)"
 
 package/debs: gpg/import
 	cp /root/publish_debs.sh scripts/publish_debs.sh

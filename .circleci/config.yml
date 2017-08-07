@@ -24,8 +24,10 @@ jobs:
       - run: 
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then export DEB_REPO="${MASTER_DEB_REPO}" && export RPM_REPO="${MASTER_RPM_REPO}"; else export DEB_REPO="${DEV_DEB_REPO}" && export RPM_REPO="${DEV_RPM_REPO}"; fi
+            make backup/debs
             make package/debs
       - run: 
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then export DEB_REPO="${MASTER_DEB_REPO}" && export RPM_REPO="${MASTER_RPM_REPO}"; else export DEB_REPO="${DEV_DEB_REPO}" && export RPM_REPO="${DEV_RPM_REPO}"; fi
+            make backup/rpms
             make package/rpms
