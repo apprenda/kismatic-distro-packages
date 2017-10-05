@@ -2,6 +2,8 @@
 
 [![Build Status](https://snap-ci.com/UCrOoZjLpiJ9te5hUCgFhosqKnGoSycwMvONJhWQ9o4/build_image)](https://snap-ci.com/apprenda/kismatic-distro-packages/branch/master)
 
+## Note: This project is no longer maintained. Official DEB/RPM packages are now available from the Kubernetes project.
+
 The goal of this document is to describe the process to build, release and consume new Kismatic packages that contain Kubernetes, Calico, Etcd and Docker components required for [Kismatic Enterprise Toolkit](https://github.com/apprenda/kismatic)
 
 https://github.com/apprenda/kismatic-distro-packages
